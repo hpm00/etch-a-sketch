@@ -92,3 +92,14 @@ button {
     border-radius: 50%;
     font-family: 'Courier New', Courier, monospace;
 }
+
+#left-buttons {
+    position: relative;
+    top: 55%;
+}
+
+#right-buttons {
+    position: relative;
+    left: 45%;
+    bottom: -15%
+}
