@@ -53,6 +53,7 @@ html, body {
   transform: rotate(45deg);
   top: -10%;
   left: -10%;
+  box-shadow: 0 0 30px 2px #ADD8E6;
 }
 
 #main-header {
@@ -74,9 +75,9 @@ html {
     font-family: 'Courier New', Courier, monospace;
 }
 
-.box {
+/*#box {
     border: 1px solid black;
-}
+} */
 
 #header-description,
 #header-title {
@@ -91,6 +92,8 @@ button {
     transform: rotate(315deg);
     border-radius: 50%;
     font-family: 'Courier New', Courier, monospace;
+    border: 0 none;
+    cursor: pointer;
 }
 
 #left-buttons {
@@ -101,5 +104,5 @@ button {
 #right-buttons {
     position: relative;
     left: 45%;
-    bottom: -15%
+    bottom: -15%;
 }
