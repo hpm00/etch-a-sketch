@@ -64,6 +64,7 @@ html, body {
 
 html {
     background-color: #FDDDE6;
+
 }
 
 #header-container {
@@ -89,20 +90,26 @@ button {
     background-color: white;
     padding: 10px;
     width: 100px;
-    transform: rotate(315deg);
-    border-radius: 50%;
     font-family: 'Courier New', Courier, monospace;
-    border: 0 none;
+    border: 3px solid pink;
     cursor: pointer;
+    margin: 1em;
 }
 
 #left-buttons {
     position: relative;
-    top: 55%;
+    bottom: -110%;
+    right: -35%;
+    transform: rotate(-45deg);
 }
 
 #right-buttons {
     position: relative;
-    left: 45%;
-    bottom: -15%;
+    transform: rotate(-45deg);
+    bottom: -10%;
+    left: 85%;
+}
+
+button[data-label = 'rainbow'] {
+    width: 130px;
 }
