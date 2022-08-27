@@ -76,10 +76,6 @@ html {
     font-family: 'Courier New', Courier, monospace;
 }
 
-/*#box {
-    border: 1px solid black;
-} */
-
 #header-description,
 #header-title {
     margin: 0em;
@@ -132,4 +128,31 @@ button[data-label = 'rainbow'] {
     position: relative;
     bottom: -65%;
     left: 20%;
+}
+
+#grid-size {
+    position: relative;
+    left: 15%;
+    width: 130px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    font-family: 'Courier New', Courier, monospace;
+    z-index: 1;
+    width: 100px;
+}
+
+a {
+    color: black;
+    padding: 12px;
+    display: block;
+    text-decoration: none;
+    border: 1px solid pink;
+}
+
+#grid-size:hover .dropdown-content {
+    display: block;
 }
