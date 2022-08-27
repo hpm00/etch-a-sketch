@@ -82,3 +82,13 @@ html {
 #header-title {
     margin: 0em;
 }
+
+button {
+    z-index: 2;
+    background-color: white;
+    padding: 10px;
+    width: 100px;
+    transform: rotate(315deg);
+    border-radius: 50%;
+    font-family: 'Courier New', Courier, monospace;
+}
