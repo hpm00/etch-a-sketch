@@ -48,7 +48,6 @@ html, body {
   background-color: white;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
   transform: rotate(45deg);
   top: -10%;
   left: -10%;
@@ -147,7 +146,7 @@ button[data-label = 'rainbow'] {
 
 a {
     color: black;
-    padding: 12px;
+    padding: 10px;
     display: block;
     text-decoration: none;
     border: 1px solid pink;
@@ -155,4 +154,22 @@ a {
 
 #grid-size:hover .dropdown-content {
     display: block;
+}
+
+.box {
+    border: solid #f5f5f5;
+    border-width: thin;
+} 
+
+.dropdown-content a:hover {
+    background-color: pink;
+}
+
+ #grid-size:hover {
+    background-color: antiquewhite;
+}
+
+#input-color {
+    border: 0 none;
+    background-color: pink;;
 }
