@@ -1,92 +1,64 @@
+// user selects grid size 
 
-// create grid based on user's selection
-const canvas = document.getElementById('canvas');
-const small = document.getElementById('small');
-const medium = document.getElementById('medium');
-const large = document.getElementById('large');
+function selectGrid() {
+const gridButtons = document.querySelectorAll('#grid-button');
 
-const smallSize = 16;
-const mediumSize = 24;
-const largeSize = 48;
-
-function defaultGrid() {
-    for (let i = 0; i < 256; i++) {
-        const box = document.createElement('div');
-        box.classList = 'box';
-        canvas.appendChild(box);
-        canvas.style.gridTemplateColumns = "repeat(16,1fr)";
-    }
+gridButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        removeActiveStatus(gridButtons);
+        if (button.classList.contains('small')) {
+            gridButtons[0].classList.add('active');
+            createGrid(16, 'small');
+        }
+        else if (button.classList.contains('medium')) {
+            gridButtons[1].classList.add('active');
+            createGrid(24, 'medium');
+        }
+        else if (button.classList.contains('large')) {
+            gridButtons[2].classList.add('active');
+            createGrid(48, 'large');
+        };  
+        });
+    });
 };
 
-small.addEventListener('click', (e) => {
-    clearBoard();
-    defaultGrid();
-});
+selectGrid();
 
-medium.addEventListener('click', (e) => {
-    clearBoard();
-    for (let i = 0; i < 576 ; i++) {
+// remove active status of 
+
+function removeActiveStatus(buttons) {
+    buttons.forEach((button) => {
+        button.classList.remove('active');
+    });
+};
+// create grid 
+
+function createGrid(size, input) {
+    const canvas = document.getElementById('canvas');
+    canvas.innerHTML = '';
+    for (let i = 0; i < size * size; i++) {
         const box = document.createElement('div');
-        box.classList = 'box';
+        box.classList = 'grid-box';
+        canvas.classList.remove('small', 'medium', 'large');
+        canvas.classList.add(input);
         canvas.appendChild(box);
-        canvas.style.gridTemplateColumns = "repeat(24,1fr)";
+        canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     };
-});
-
-large.addEventListener('click', (e) => {
-    clearBoard();
-    for (let i = 0; i < 2304; i++) {
-        const box = document.createElement('div');
-        box.classList = 'box';;
-        canvas.appendChild(box);
-        canvas.style.gridTemplateColumns = "repeat(48,1fr)";
-    };
-});
-
-// clear board 
-const clearBtn = document.getElementById('clear-mode');
-clearBtn.addEventListener('click', clearBoard);
-const boxes = document.getElementsByClassName('box');
-
-function clearBoard(e) {
-    Array.from(boxes).forEach((box => {
-        box.remove();
-    }));
 };
 
+// user selects single color or rainbow color mode
 
-// create click and hold effect 
-canvas.addEventListener('click', sketch); // mouseover/movemove = 'hover' mousedown and click are the same 
-// make clicks faster 
+// create sketch 
 
-// create function that fills selected divs with color 
-const defaultColor = '#333333';
-let currentColor = '';
+// user selects erase
 
-function sketch(e) { 
-    if (e.target.classList.contains('box')) {
-        e.target.style.backgroundColor = 'black';
-    }
-};
+// erase sketch 
 
+// user selects clear 
 
+// clear sketch 
+function clearCanvas() {
 
-// color selector
-// rainbow mode 
-
-
-// create eraser 
-const eraser = document.getElementById('delete-button');
-
-eraser.addEventListener('click', erase);
-
-function erase(e) {
-    canvas.addEventListener('click', (e) => {
-        e.target.style.backgroundColor = 'white';
-    })
-};
-
-
-window.onload = () => {
-    defaultGrid();
 }
+// set window default
+
