@@ -25,14 +25,17 @@
                     <div id="canvas"></div>
                 </div>
                 <div id="left-buttons">
-                    <button id="color-mode">Color</button>
+                    <button id="color-mode">
+                        Color
+                        <input type="color" id="input-color">
+                    </button>
                     <button id="rainbow-mode" data-label="rainbow">Rainbow Mode</button>
                     <button id="grid-size">
                         Grid Density
                         <div class="dropdown-content">
-                            <a href="#">Small</a>
-                            <a href="#">Medium</a>
-                            <a href="#">Large</a>
+                            <a id="small" href="#">Small</a>
+                            <a id='medium' href="#">Medium</a>
+                            <a id='large' href="#">Large</a>
                         </div>
                     </button>
                 </div>
