@@ -4,11 +4,15 @@ const small = document.getElementById('small');
 const medium = document.getElementById('medium');
 const large = document.getElementById('large');
 
+const smallSize = 256;
+const mediumSize = 576;
+const largeSize = 2304;
+
 small.addEventListener('click', (e) => {
     clearBoard();
     for (let i = 0; i < 256; i++) {
         const box = document.createElement('div');
-        box.setAttribute("id", "box");
+        box.classList = 'box';
         canvas.appendChild(box);
         canvas.style.gridTemplateColumns = "repeat(16,1fr)";
     };
@@ -18,7 +22,7 @@ medium.addEventListener('click', (e) => {
     clearBoard();
     for (let i = 0; i < 576 ; i++) {
         const box = document.createElement('div');
-        box.setAttribute("id", "box");
+        box.classList = 'box';
         canvas.appendChild(box);
         canvas.style.gridTemplateColumns = "repeat(24,1fr)";
     };
@@ -28,26 +32,24 @@ large.addEventListener('click', (e) => {
     clearBoard();
     for (let i = 0; i < 2304; i++) {
         const box = document.createElement('div');
-        box.setAttribute("id", "box");
+        box.classList = 'box';;
         canvas.appendChild(box);
         canvas.style.gridTemplateColumns = "repeat(48,1fr)";
     };
 });
 
+
+
 // clear board 
-const clearBtn = 
+const clearBtn = document.getElementById('clear-mode');
+clearBtn.addEventListener('click', clearBoard);
+const boxes = document.getElementsByClassName('box');
 
-function clearBoard() {
-
-}
-
-
-
-
-
-
-
-
+function clearBoard(e) {
+    Array.from(boxes).forEach((box => {
+        box.remove();
+    }));
+};
 
 
 // create click and hold effect 
