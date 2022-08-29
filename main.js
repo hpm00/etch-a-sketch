@@ -30,6 +30,7 @@ function removeActiveStatus(buttons) {
     });
 };
 
+
 // create grid 
 function createGrid(size, input) {
     const canvas = document.getElementById('canvas');
@@ -82,13 +83,29 @@ certainColor();
 
 // erase sketch 
 function eraseDiv() {
-// finish this
+    const eraser = document.getElementById('delete-button');
+    eraser.addEventListener('click', (e) => {
+        eraser.classList.remove('active');
+        if (e.target.classList.contains('delete-button')) {
+            eraser.style.backgroundColor = 'pink';
+            eraser.classList.add('active');
+
+            const gridBoxes = document.getElementsByClassName('grid-box');
+            Array.from(gridBoxes).forEach((gridBox) => {
+            gridBox.addEventListener('click', (e) => {
+                e.target.style.backgroundColor = 'white';
+                });
+            });
+        }
+        else if (!e.target.classList.contains('delete-button')) {
+            eraser.classList.remove('active');
+            eraser.style.backgroundColor = 'white';
+        };
+    });
 };
 
 eraseDiv();
 
-
-const clearBtn = document.getElementById('clear-mode');
 // clear sketch 
 function clearCanvas() {
     const clearBtn = document.getElementById('clear-mode');
