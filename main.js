@@ -37,27 +37,46 @@ function createGrid(size, input) {
     for (let i = 0; i < size * size; i++) {
         const box = document.createElement('div'); 
         box.classList = 'grid-box'; 
+        box.id = 'box';
         canvas.classList.remove('small', 'medium', 'large'); // good to be sure there will be no duplicates
         canvas.classList.add(input); // add new class name based on density name
         canvas.appendChild(box); // 
         canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`; 
     };
 };
+createGrid();
+// create sketch based on color mode selected
 
-// user selects single color or rainbow color mode
+// generating random color (rainbow mode)
+function randomColor() {
 
-// create sketch 
+};
 
-// user selects erase
+function certainColor() {
+    const inputColor = document.getElementById('input-color');
+    inputColor.addEventListener('input', () => {
+        let selectedColor = inputColor.value;
+        const boxes = document.getElementsByClassName('grid-box');
+        Array.from(boxes).forEach((box) => {
+            box.addEventListener('click', (e) => {
+            e.target.style.backgroundColor = selectedColor;
+            });
+        });
+    });
+};
+
+certainColor();
 
 // erase sketch 
 
 // clear sketch 
 function clearCanvas() {
     const clearBtn = document.getElementById('clear-mode');
-    clearBtn.addEventListener('click', () => {
+    clearBtn.addEventListener('click', (e) => {
         const boxes = document.getElementsByClassName('grid-box');
-        boxes.style.backgroundColor = 'white';
+        Array.from(boxes).forEach((box) => {
+            boxes.style.backgroundColor = 'white';
+        })
     });
 };
 // set window default
