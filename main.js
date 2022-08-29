@@ -46,11 +46,24 @@ function createGrid(size, input) {
 };
 createGrid();
 
+function getRandomRGB() {
+    return Math.round(Math.random() * 255);
+}
+getRandomRGB();
 
 // generating random color (rainbow mode)
 function randomColor() {
-
+    const rainbowColor = document.getElementById('rainbow-mode');
+    rainbowColor.addEventListener('click', (e) => {
+        const boxes = document.getElementsByClassName('grid-box');
+        Array.from(boxes).forEach((box) => {
+            box.addEventListener('click', (e) => {
+            box.style.backgroundColor = `rgb(${getRandomRGB()}, ${getRandomRGB()}, ${getRandomRGB()})`;
+            });
+        });
+    })
 };
+randomColor();
 
 function certainColor() {
     const inputColor = document.getElementById('input-color');
@@ -68,7 +81,11 @@ function certainColor() {
 certainColor();
 
 // erase sketch 
+function eraseDiv() {
+// finish this
+};
 
+eraseDiv();
 
 
 const clearBtn = document.getElementById('clear-mode');
@@ -85,7 +102,7 @@ function clearCanvas() {
 
 clearCanvas();
 
-// set window default
+//set window default
 window.onload = () => {
     createGrid(16, 'small'); // when the page loads, it will default to 16x16
     // create default color
