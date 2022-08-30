@@ -87,9 +87,8 @@ function eraseDiv() {
     eraser.addEventListener('click', (e) => {
         eraser.classList.remove('active');
         if (e.target.classList.contains('delete-button')) {
-            eraser.style.backgroundColor = 'pink';
             eraser.classList.add('active');
-
+            eraser.style.backgroundColor = 'pink';
             const gridBoxes = document.getElementsByClassName('grid-box');
             Array.from(gridBoxes).forEach((gridBox) => {
             gridBox.addEventListener('click', (e) => {
@@ -123,4 +122,11 @@ clearCanvas();
 window.onload = () => {
     createGrid(16, 'small'); // when the page loads, it will default to 16x16
     // create default color
+    const color = '#000000';
+    const boxes = document.getElementsByClassName('grid-box');
+        Array.from(boxes).forEach((box) => {
+            box.addEventListener('click', (e) => {
+            e.target.style.backgroundColor = color;
+        });
+    });
 };
