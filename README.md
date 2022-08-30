@@ -2,7 +2,7 @@
 
 The Odin Project: Foundations Project #4
 
-Live Link: 
+Live Link: https://hpm00.github.io/etch-a-sketch/
 
 Make your own Valentine's conversation heart candy! 
 
